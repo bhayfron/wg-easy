@@ -1,0 +1,15 @@
+sudo nano Caddyfile
+
+# Caddyfile
+
+{
+        # setup your email address
+        email info@habsnet.com
+}
+
+vpn-uk.habsnet.com {
+        # since the container will share the network with wg-easy
+        # we can use the proper container name
+        reverse_proxy wg-easy:80
+        tls internal
+}
